@@ -1,8 +1,14 @@
+import { use, useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { SafeAreaView, StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native';
-import ionicons from "@expo/vector-icons/ionicons";
+import Ionicons from "@expo/vector-icons/Ionicons";
 
 export default function App() {
+  const {height, setHeight} = useState(null);
+  const {Weight, setWeight} = useState(null);
+  const {imc, setimc} = useState(null);
+  const {textButton, setTextButton} = useState("Calcular");
+  const { messageImc, setMessagemImc} = useState("Preencha o peso e a Altura");
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.titleBox}>
@@ -15,26 +21,31 @@ export default function App() {
         <View>
           <Text style={styles.label}>Altura</Text>
           <TextInput
-            style={style.input}
+            style={styles.input}
             placeholder='Ex: 1.70'
             keyboardType='numeric'
           />
         </View>
 
         <View style= {{margintop: 25}}>
-          <Text style={styles.label}>Altura</Text>
+          <Text style={styles.label}>Peso</Text>
           <TextInput
-            style={style.input}
+            style={styles.input}
             placeholder='Ex: 1.70'
             keyboardType='numeric'
           />
         </View>
 
-        /<TouchableOpacity style={styles.button} onPress={()=> alert('A#####################')}>
+        <TouchableOpacity style={styles.button} onPress={()=> alert('AHHHHHHHHHHHHHHHHH')}>
 
-          <ionicons name={"Calculator-sharp"} size={24} color="#edf2f4"/> 
+          <Ionicons name={"Calculator-sharp"} size={24} color="#edf2f4"/> 
           <Text style={styles.text}>Calcular</Text>
         </TouchableOpacity>
+
+        <View style={styles.imcContainer}>
+          <Text style={styles.imcText}>Preencha o peso e a altura</Text>
+          <Text style={styles.imcResult}>666</Text>
+        </View>
           
 
       </View>
@@ -104,6 +115,25 @@ const styles = StyleSheet.create({
     fontSize: 24,
     fontWeight: 'bold',
     marginLeft: 5,
-  }
+  },
+  imcContainer: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: '100%',
+  },
+  imcText: {
+    fontSize: 18,
+    color: '#ef233c',
+    fontWeight: 'bold'
+  },
+  imcResult:
+
+
+
+
+
 });
+
+
 
